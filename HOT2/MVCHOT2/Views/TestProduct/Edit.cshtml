@@ -1,0 +1,50 @@
+﻿@model TestProduct
+@{
+    ViewBag.Action = $"{ViewBag.Action}";
+}
+<h1 class="d-flex justify-content-center text-decoration-underline bg-black text-white"><strong>Edit Product</strong></h1>
+<h2>@ViewBag.Action</h2>
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="ProductName" class="form-label"></label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ProductDescShort" class="form-label"></label>
+        <input asp-for="ProductDescShort" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ProductDescLong" class="form-label"></label>
+        <input asp-for="ProductDescLong" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ProductImage" class="form-label"></label>
+        <input asp-for="ProductImage" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ProductPrice" class="form-label"></label>
+        <input asp-for="ProductPrice" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ProductQuantity" class="form-label"></label>
+        <input asp-for="ProductQuantity" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Category" class="form-label"></label>
+        <input asp-for="Category" class="form-control" />
+        @*<select asp-for="CategoryId" class="form-control">
+            <option value="">- -Select Category- -</option>
+            @foreach (var category in ViewBag.Category)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+
+            }
+        </select>*@
+    </div>
+    <div>
+        <input type="hidden" asp-for="TestProductId" />
+        <button class="btn btn-success">Save</button>
+        <a asp-controller="TestProduct" asp-action="Index" asp-route-id="@Model.TestProductId" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

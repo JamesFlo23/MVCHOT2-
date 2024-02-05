@@ -1,0 +1,42 @@
+﻿@model List<TestProduct>
+@{
+    ViewData["Title"] = "Product List Page";
+}
+<h1 class="d-flex justify-content-center text-decoration-underline bg-black text-white"><strong>Product List</strong></h1>
+<div class="mb-2">
+    <a asp-controller="TestProduct" asp-action="Add" class="btn btn-outline-primary"><strong>Add Product</strong></a>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Short Description</th>
+            <th>Long Description</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="TestProduct" asp-action="Edit" asp-route-id="@product.TestProductId">@product.ProductName</a>
+                </td>
+                <td>@product.ProductDescShort</td>
+                <td>@product.ProductDescLong</td>
+                <td>@product.ProductImage</td>
+                <td>@product.ProductPrice</td>
+                <td>@product.ProductQuantity</td>
+                <td>@product.Category</td>
+                <td>
+                    <a asp-controller="TestProduct" asp-action="Edit" asp-route-id="@product.TestProductId" asp-route-slug="@product.Slug">Edit</a>
+                    <a asp-controller="TestProduct" asp-action="Delete" asp-route-id="@product.TestProductId" asp-route-slug="@product.Slug">Delete</a>
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
