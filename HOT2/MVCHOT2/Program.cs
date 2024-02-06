@@ -14,7 +14,7 @@ builder.Services.AddRouting(options =>
 
 //Add EF core Dependency Injection
 builder.Services.AddDbContext<TestProductContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TestProductContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesOrderCS")));
 
 var app = builder.Build();
 

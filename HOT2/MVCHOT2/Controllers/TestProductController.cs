@@ -30,7 +30,7 @@ namespace MVCHOT2.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit TestProduct";
-            //ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
             var product = Context.TestProducts.Find(id);
             return View(product);
         }
@@ -54,7 +54,7 @@ namespace MVCHOT2.Controllers
             else
             {
                 ViewBag.Action = (product.TestProductId == 0) ? "Add" : "Edit";
-                //ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
+                ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
                 return View(product);
             }
         }
@@ -63,14 +63,13 @@ namespace MVCHOT2.Controllers
         public IActionResult Add() 
         {
             ViewBag.Action = "Add New Product";
-            //ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
             return View("Edit", new TestProduct());
         }
 
         public IActionResult Index()
         {
-            //.Include(p => p.Category)
-            var products = Context.TestProducts.OrderBy(c => c.ProductName).ToList();
+            var products = Context.TestProducts.Include(c => c.Category).OrderBy(c => c.ProductName).ToList();
             return View(products);
         }
     }

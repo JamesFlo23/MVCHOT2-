@@ -42,10 +42,10 @@ namespace MVCHOT2.Migrations
                     { 4, "1", "", " ", "", "Cycle-Doc Pro Repair Stand", 166.0, 12 },
                     { 5, "1", "", " ", "", "Dog Ear Aero-Flow Floor Pump", 5.0, 25 },
                     { 6, "1", "", " ", "", "Dog Ear Cycle Computer", 75.0, 20 },
-                    { 7, "1", "", " ", "", "Dog Ear Helmet Mount Mirrors", 7.4500000000000002, 12 },
+                    { 7, "1", "", " ", "", "Dog Ear Helmet Mount Mirrors", 7.45, 12 },
                     { 8, "1", "", " ", "", "Dog Ear Monster Grip Gloves", 15.0, 30 },
                     { 9, "2", "", " ", "", "Eagle FS-3 Mountain Bike", 1800.0, 8 },
-                    { 10, "4", "", " ", "", "Eagle SA-120 Clipless Pedals", 139.94999999999999, 20 }
+                    { 10, "4", "", " ", "", "Eagle SA-120 Clipless Pedals", 139.94, 20 }
                 });
         }
 

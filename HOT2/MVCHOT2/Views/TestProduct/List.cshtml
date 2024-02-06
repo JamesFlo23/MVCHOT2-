@@ -31,7 +31,7 @@
                 <td>@product.ProductImage</td>
                 <td>@product.ProductPrice</td>
                 <td>@product.ProductQuantity</td>
-                <td>@product.Category</td>
+                <td>@product.Category.CategoryName</td>
                 <td>
                     <a asp-controller="TestProduct" asp-action="Edit" asp-route-id="@product.TestProductId" asp-route-slug="@product.Slug">Edit</a>
                     <a asp-controller="TestProduct" asp-action="Delete" asp-route-id="@product.TestProductId" asp-route-slug="@product.Slug">Delete</a>

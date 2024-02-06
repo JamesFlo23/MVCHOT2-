@@ -28,10 +28,10 @@ namespace MVCHOT2.Models
 
         public string Slug => ProductName?.Replace(' ', '-').ToLower() + ' ' + ProductImage?.ToString();
 
-        //[Required(ErrorMessage = "Please select a product category")]
-        //public string CategoryId { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Please select a product category")]
+        public string CategoryId { get; set; } = string.Empty;
 
         [ValidateNever]
-        public string Category { get; set; } = null!;
+        public Category Category { get; set; } = null!;
     }
 }
