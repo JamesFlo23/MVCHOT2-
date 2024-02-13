@@ -23,20 +23,29 @@ namespace MVCHOT2.Controllers
         {
             Context.TestProducts.Remove(product);
             Context.SaveChanges();
-            return RedirectToAction("Index","TestProducts");
+            return RedirectToAction("List","TestProduct");
+        }
+
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Action = "Add New Product";
+            ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
+            return View("AddEdit", new TestProduct());
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit TestProduct";
-            ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Categories = Context.Categories.ToList();
             var product = Context.TestProducts.Find(id);
-            return View(product);
+            return View("AddEdit",product);
         }
 
         [HttpPost]
-        public IActionResult Edit(TestProduct product)
+        public IActionResult AddEdit(TestProduct product)
         {
             if (ModelState.IsValid)
             {
@@ -49,27 +58,17 @@ namespace MVCHOT2.Controllers
                     Context.TestProducts.Update(product);
                 }
                 Context.SaveChanges();
-                return RedirectToAction("Index", "TestProduct");
+                return RedirectToAction("List", "TestProduct");
             }
-            else
-            {
                 ViewBag.Action = (product.TestProductId == 0) ? "Add" : "Edit";
-                ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
-                return View(product);
-            }
+                ViewBag.Categories = Context.Categories.ToList();
+                return View(product);            
         }
 
-        [HttpGet]
-        public IActionResult Add() 
-        {
-            ViewBag.Action = "Add New Product";
-            ViewBag.Categories = Context.Categories.OrderBy(g => g.CategoryName).ToList();
-            return View("Edit", new TestProduct());
-        }
 
-        public IActionResult Index()
+        public IActionResult List()
         {
-            var products = Context.TestProducts.Include(c => c.Category).OrderBy(c => c.ProductName).ToList();
+            var products = Context.TestProducts.Include(g => g.Category).OrderBy(g => g.ProductName).ToList();
             return View(products);
         }
     }

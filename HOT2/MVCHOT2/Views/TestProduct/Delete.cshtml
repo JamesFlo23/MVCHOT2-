@@ -4,10 +4,10 @@
 }
 <h1 class="d-flex justify-content-center text-decoration-underline bg-black text-white"><strong>Delete Product</strong></h1>
 <h2>Confirm Deletion</h2>
-<h3>@Model.ProductName , @Model.ProductDescShort</h3>
-<form asp-action="Delete" method="post">
+<h3>@Model.ProductName </h3>
+<form asp-controller="TestProduct" asp-action="Delete" method="post">
     <input type="hidden" asp-for="TestProductId" />
     <button type="submit" class="btn btn-danger">Delete</button>
-    <a asp-controller="TestProduct" asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <a asp-controller="TestProduct" asp-action="List" class="btn btn-secondary">Cancel</a>
 </form>
 
