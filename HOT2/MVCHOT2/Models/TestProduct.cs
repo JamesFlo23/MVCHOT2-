@@ -26,7 +26,7 @@ namespace MVCHOT2.Models
         [Range(1, 1000, ErrorMessage = "Quantity must be a positive number, greater than 1")]
         public int ProductQuantity { get; set; } = 0;
 
-        public string Slug => ProductName?.Replace(' ', '-').ToLower() + '-' + ProductDescShort?.Replace(' ', '-').ToLower();
+        public string Slug => ProductName?.Replace(' ', '-').ToLower() + '-' + ProductName?.Replace(' ', '-').ToLower();
 
         [Required(ErrorMessage = "Please select a product category")]
         public string CategoryId { get; set; } = string.Empty;

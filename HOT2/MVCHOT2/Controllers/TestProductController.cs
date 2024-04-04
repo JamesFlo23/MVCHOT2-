@@ -41,6 +41,10 @@ namespace MVCHOT2.Controllers
             ViewBag.Action = "Edit TestProduct";
             ViewBag.Categories = Context.Categories.ToList();
             var product = Context.TestProducts.Find(id);
+            if(product == null)
+            {
+                return NotFound();
+            }
             return View("AddEdit",product);
         }
 

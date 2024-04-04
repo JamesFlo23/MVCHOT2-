@@ -24,7 +24,7 @@
         {
             <tr>
                 <td>
-                    <a asp-controller="TestProduct" asp-action="Edit" asp-route-id="@product.TestProductId">@product.ProductName</a>
+                    <a asp-controller="TestProduct" asp-action="Edit" asp-route-id="@product.TestProductId" asp-route-slug="@product.Slug">@product.ProductName</a>
                 </td>
                 <td>@product.ProductDescShort</td>
                 <td>@product.ProductDescLong</td>
